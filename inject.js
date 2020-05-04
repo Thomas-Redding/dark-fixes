@@ -13,23 +13,36 @@ function injectCSS(cssText) {
   }
 }
 
+function urlStartsWith(s) {
+  return window.location.href.startsWith(s);
+}
+
 let coverObserver = new MutationObserver(() => {
   injectCSS(`body {
     filter: brightness(0.6);
   }`);
-  if (window.location.href.startsWith("https://docs.google.com/spreadsheets/d/")) {
+  if (urlStartsWith("https://docs.google.com/spreadsheets/d/")) {
     injectCSS(`
       #waffle-grid-container {
         filter: invert(1) hue-rotate(180deg);
       }`);
   }
-  if (window.location.href.startsWith("https://drive.google.com/drive/u/")) {
+  if (urlStartsWith("https://drive.google.com/drive/u/")) {
     injectCSS(`
       svg {
         filter: invert(1) hue-rotate(180deg);
       }
       .a-w-Mr::after {
         background: none !important;
+      }
+      `);
+  }
+  if (urlStartsWith("https://github.com/")) {
+    console.log("git");
+    injectCSS(`
+      .btn {
+        background-color: black !important;
+        background-image: none !important;
       }
       `);
   }
