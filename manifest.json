@@ -1,0 +1,22 @@
+{
+  "name": "dark",
+  "description": "Some custom dark CSS changes to augment the experimental chrome flag.",
+  "version": "0.2",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_title": "Modify blacklist",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>" ], 
+      "run_at": "document_start",
+      "js": ["inject.js"]
+    }
+  ],
+  "manifest_version": 2
+}
