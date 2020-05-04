@@ -1,5 +1,5 @@
 {
-  "name": "dark",
+  "name": "dark-fixes",
   "description": "Some custom dark CSS changes to augment the experimental chrome flag.",
   "version": "0.2",
   "permissions": [
